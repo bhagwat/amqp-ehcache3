@@ -1,0 +1,2 @@
+# Ehcache Replication using RabbitMQ
+

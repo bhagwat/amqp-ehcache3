@@ -1,0 +1,70 @@
+
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jacksonVersion = "2.8.1"
+    ehcacheVersion = "3.3.1"
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter',
+            'org.springframework.boot:spring-boot-starter-amqp',
+            'org.springframework.boot:spring-boot-starter-logging',
+            'org.springframework.boot:spring-boot-autoconfigure',
+            'org.springframework.boot:spring-boot-starter-amqp',
+            "org.ehcache:ehcache:${ehcacheVersion}",
+            "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}",
+            "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}",
+            "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+/*
+task sayHello
+
+sayHello.doLast{
+    System.out.println("Hello task1");
+    System.out.println("Hello task2");
+}
+
+sayHello.doLast{
+    System.out.println("Hello task2");
+    System.out.println("Hello task3");
+}
+
+sayHello.doFirst{
+    System.out.println("Hello task0");
+    System.out.println("Hello task1");
+}
+
+bootRun.doFirst{
+    println ">>" * 40
+}
+
+bootRun.dependsOn "sayHello"
+*/
