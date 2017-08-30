@@ -52,6 +52,9 @@ class CacheEventHolder<K, V> implements Serializable {
         this.cacheName = cacheName;
     }
 
+    CacheEventHolder() {
+    }
+
     CacheEventHolder(String cacheName, CacheEvent<? extends K, ? extends V> event) {
         this.cacheName = cacheName;
         this.key = event.getKey();
